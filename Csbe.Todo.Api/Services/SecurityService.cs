@@ -20,11 +20,16 @@ namespace Csbe.Todo.Api.Services
         public static byte[] HashPassword(byte[] passwordToHash)
         {
             byte[] hInput;
+            byte[] hSalt = GetSalt();
             using(SHA256 sh = SHA256.Create())
             {
                 hInput = sh.ComputeHash(passwordToHash);
             }
-            return hInput;
+            int sizeofh = hInput.Length + 1;
+            byte[] SaltedPw = new byte[(hInput.Length + 1) + (hSalt.Length + 3)];
+            Array.Copy(hInput,0, SaltedPw, 0,hInput.Length);
+            Array.Copy(hSalt, 0, SaltedPw, hInput.Length, hSalt.Length);
+            return SaltedPw;
         }
         //Method to generate pw with hash, salt is also byte and pepper
         public static string HashPasswordWithSalt(byte[] userPassword)
@@ -46,28 +51,13 @@ namespace Csbe.Todo.Api.Services
             return salt;
         }
 
-        public static bool Verify(string pw, string hashedPassword) //add to salt to param. + Save salt in db to compare.
+        /*public static bool Verify(string pw, string hashedPassword) //add to salt to param. + Save salt in db to compare.
         {
             var splittedHashString = hashedPassword.Replace("AAAAAAAAAAAAAAAAAAAAAA==", "").Split('$');
             var iterations = int.Parse(splittedHashString[0]);
             var base64Hash = splittedHashString[1];
 
             var hashBytes = Convert.FromBase64String(base64Hash);
-
-            var salt = new byte[16];
-            Array.Copy(hashBytes, 0, salt, 0, 16);
-
-            var pbkdf2 = new Rfc2898DeriveBytes(pw, salt, iterations);
-            byte[] hash = pbkdf2.GetBytes(16);
-
-            for(var i = 0; i < 16; i++)
-            {
-                if(hashBytes[i + 16] != hash[i])
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+        }*/
     }        
 }

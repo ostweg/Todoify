@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Csbe.Todo.Api"
+    "\\Csbe.Todo.Api",
+    "\\Csbe.Todo.Api\\Controllers"
   ],
-  "SelectedNode": "\\Csbe.Todo.Api\\Startup.cs",
+  "SelectedNode": "\\Csbe.Todo.Api\\Controllers\\UserController.cs",
   "PreviewInSolutionExplorer": false
 }

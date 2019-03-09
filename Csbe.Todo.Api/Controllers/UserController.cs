@@ -53,8 +53,8 @@ namespace Csbe.Todo.Api.Controllers
                 /*byte[] pw = SecurityService.HashPassword(user.PwHash);
                 byte[] salt = SecurityService.GetSalt();
                 byte[] rv = new byte[pw.Length + salt.Length]; */
-                string PWSTRING = SecurityService.HashPasswordWithSalt(user.PwHash);
-                user.PwHash = Encoding.ASCII.GetBytes(PWSTRING);
+                
+                user.PwHash = SecurityService.HashPassword(user.PwHash);
                 user.PwSalt = SecurityService.GetSalt();
                 _todoContext.Users.Add(user);
                 await _todoContext.SaveChangesAsync();
@@ -63,6 +63,11 @@ namespace Csbe.Todo.Api.Controllers
 
             return CreatedAtAction("ReadUserById", new {id = user.Id}, user);
         }
+        /*[HttpPost("authenticate")]
+        public async Task<ActionResult<User>> AuthenticateUser(string password, string username)
+        {
+        
+        }*/
         //PUT: api/todoitem/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateUser(long id, User user)
