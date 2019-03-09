@@ -1,0 +1,19 @@
+span {
+  font-weight: bold;
+  font-size:60px;
+  font-family: 'Old Standard TT', serif;
+  color:#334A5A;
+}
+h1 {
+  font-weight:bold;
+  font-size:60px;
+  font-family: 'Old Standard TT', serif;
+  color:#0C1824;
+}
+.b2 {
+   padding:20px;
+ }
+.title {
+  text-align:center;
+  margin-bottom:70px;
+}
