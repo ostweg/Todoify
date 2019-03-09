@@ -62,11 +62,17 @@ namespace Csbe.Todo.Api.Controllers
 
             return CreatedAtAction("ReadUserById", new {id = user.Id}, user);
         }
-        /*[HttpPost("authenticate")]
-        public async Task<ActionResult<User>> AuthenticateUser(string password, string username)
+        [HttpPost("authenticate")]
+        public IActionResult AuthenticateUser(User user)
         {
-        
-        }*/
+            var storedpw = _todoContext.Users.FirstOrDefault(x => x.Username == user.Username).PwHash;
+            var pw = SecurityService.HashPasswordwithSalt(user.PwHash);
+            if(SecurityService.CanAuthenticate(pw,storedpw)){
+                return StatusCode(200);
+            }else {
+                return StatusCode(403);
+            }              
+        }
         //PUT: api/todoitem/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateUser(long id, User user)
