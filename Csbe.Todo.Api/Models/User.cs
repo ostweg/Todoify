@@ -10,7 +10,7 @@ namespace Csbe.Todo.Api.Models
         public string Email {get; set;}
         public string Username {get;set;}
         public byte[] PwHash {get; set;}
-        public byte[] PwSalt {get;set;}
+      
        
 
         public IEnumerable<TodoItem> TodoItems {get;set;} //navigation property

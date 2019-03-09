@@ -54,8 +54,7 @@ namespace Csbe.Todo.Api.Controllers
                 byte[] salt = SecurityService.GetSalt();
                 byte[] rv = new byte[pw.Length + salt.Length]; */
                 
-                user.PwHash = SecurityService.HashPassword(user.PwHash);
-                user.PwSalt = SecurityService.GetSalt();
+                user.PwHash = SecurityService.HashPasswordwithSalt(user.PwHash);
                 _todoContext.Users.Add(user);
                 await _todoContext.SaveChangesAsync();
                 

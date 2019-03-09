@@ -17,47 +17,23 @@ namespace Csbe.Todo.Api.Services
         }    
 
         //Hash method
-        public static byte[] HashPassword(byte[] passwordToHash)
-        {
-            byte[] hInput;
-            byte[] hSalt = GetSalt();
-            using(SHA256 sh = SHA256.Create())
-            {
-                hInput = sh.ComputeHash(passwordToHash);
+        public static byte[] HashPasswordwithSalt(byte[] plainPw){
+            byte[] pwBytes = plainPw;
+            var salt = GetSalt();
+            var mergeBytes = new byte[pwBytes.Length + salt.Length];
+            Array.Copy(pwBytes,mergeBytes,pwBytes.Length);
+            Array.Copy(salt, 0,mergeBytes,pwBytes.Length, salt.Length);
+
+            byte[] hash;
+            using(var sha = SHA256.Create()){
+                hash = sha.ComputeHash(mergeBytes);
             }
-            int sizeofh = hInput.Length + 1;
-            byte[] SaltedPw = new byte[(hInput.Length + 1) + (hSalt.Length + 3)];
-            Array.Copy(hInput,0, SaltedPw, 0,hInput.Length);
-            Array.Copy(hSalt, 0, SaltedPw, hInput.Length, hSalt.Length);
-            return SaltedPw;
-        }
-        //Method to generate pw with hash, salt is also byte and pepper
-        public static string HashPasswordWithSalt(byte[] userPassword)
-        {
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
-            var pbkdf2 = new Rfc2898DeriveBytes(userPassword,salt, 10000);
-            byte[] hash = pbkdf2.GetBytes(20);
-            byte[] hashBytes = new byte[36];
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-            string savedPasswordHash = Convert.ToBase64String(hashBytes);
-            return savedPasswordHash;
-        }
-        
+            return hash;
+        }              
         public static byte[] GetSalt()
         {
             byte[] salt = new byte[16];
             return salt;
         }
-
-        /*public static bool Verify(string pw, string hashedPassword) //add to salt to param. + Save salt in db to compare.
-        {
-            var splittedHashString = hashedPassword.Replace("AAAAAAAAAAAAAAAAAAAAAA==", "").Split('$');
-            var iterations = int.Parse(splittedHashString[0]);
-            var base64Hash = splittedHashString[1];
-
-            var hashBytes = Convert.FromBase64String(base64Hash);
-        }*/
     }        
 }

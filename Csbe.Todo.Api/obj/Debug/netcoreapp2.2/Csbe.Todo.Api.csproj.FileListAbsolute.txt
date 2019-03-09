@@ -40,3 +40,17 @@ C:\Users\samuel\Todoify\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.
 C:\Users\samuel\Todoify\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.RazorTargetAssemblyInfo.cache
 C:\Users\samuel\Todoify\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.dll
 C:\Users\samuel\Todoify\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.pdb
+C:\Users\chano\Todoify\Csbe.Todo.Api\bin\Debug\netcoreapp2.2\Csbe.Todo.Api.deps.json
+C:\Users\chano\Todoify\Csbe.Todo.Api\bin\Debug\netcoreapp2.2\Csbe.Todo.Api.runtimeconfig.json
+C:\Users\chano\Todoify\Csbe.Todo.Api\bin\Debug\netcoreapp2.2\Csbe.Todo.Api.runtimeconfig.dev.json
+C:\Users\chano\Todoify\Csbe.Todo.Api\bin\Debug\netcoreapp2.2\Csbe.Todo.Api.dll
+C:\Users\chano\Todoify\Csbe.Todo.Api\bin\Debug\netcoreapp2.2\Csbe.Todo.Api.pdb
+C:\Users\chano\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.csprojAssemblyReference.cache
+C:\Users\chano\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.csproj.CoreCompileInputs.cache
+C:\Users\chano\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.RazorAssemblyInfo.cache
+C:\Users\chano\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.RazorAssemblyInfo.cs
+C:\Users\chano\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.AssemblyInfoInputs.cache
+C:\Users\chano\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.AssemblyInfo.cs
+C:\Users\chano\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.RazorTargetAssemblyInfo.cache
+C:\Users\chano\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.dll
+C:\Users\chano\Todoify\Csbe.Todo.Api\obj\Debug\netcoreapp2.2\Csbe.Todo.Api.pdb
