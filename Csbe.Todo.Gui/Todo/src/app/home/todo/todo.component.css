@@ -1,0 +1,15 @@
+button {
+  background-color: white;
+  outline: none;
+}
+span {
+  margin-left:5px;
+}
+.container-nav {
+  position: relative;
+}
+.b1,.b2 {
+  margin:10px;
+}
+
+

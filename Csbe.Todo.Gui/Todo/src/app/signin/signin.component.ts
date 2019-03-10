@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ConfigService} from "../Services/config.service";
 import {UserService} from "../Interfaces/user.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-signin',
@@ -13,7 +14,7 @@ export class SigninComponent implements OnInit {
   public MessageForm:FormGroup;
   SomethingWentWrong:boolean = false;
   PwOrUserIsWrong:boolean = false;
-  constructor(public configs: ConfigService, public FormBuilder:FormBuilder) {
+  constructor(public configs: ConfigService, public FormBuilder:FormBuilder, public route:Router) {
     this.MessageForm = this.FormBuilder.group({
       Username:['',Validators.required],
       Password:['',[ Validators.required,Validators.minLength(8),Validators.maxLength(8)]]
@@ -37,6 +38,7 @@ export class SigninComponent implements OnInit {
           Username:undefined,
           PwHash: undefined
         };
+        this.route.navigateByUrl('/home');
         console.log("test");
       }, error1 => {
         if(error1["statusText"] == "Internal Server Error"){

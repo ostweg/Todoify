@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UserService} from '../Interfaces/user.service';
 import {Observable} from 'rxjs';
+import {TodoService} from "../Interfaces/todo.service";
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,14 @@ export class ConfigService {
   AuthenticateUser(User:UserService):Observable<UserService>{
 
     return this.HttpClient.post<UserService>(`${this.url}/authenticate`,User);
+  }
+  PostTodoItem(object:TodoService):Observable<TodoService>{
+    const httpOptions = {
+      headers: new HttpHeaders ({
+        'Content-Type': 'application/json',
+      })
+    };
+    return this.HttpClient.post<TodoService>(`${this.url}`, object, httpOptions);
   }
 
 }

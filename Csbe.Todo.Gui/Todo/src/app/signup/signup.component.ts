@@ -45,10 +45,13 @@ export class SignupComponent implements OnInit {
         Email:undefined,
         Username:undefined,
         PwHash:undefined,
-      }
+      };
     },error => {
       if(error["statusText"] == "Conflict"){
         this.UserExists = true;
+      }
+      if(error["statusText"] == "Internal Server Error"){
+        this.route.navigateByUrl('/home');
       }
     });
   }

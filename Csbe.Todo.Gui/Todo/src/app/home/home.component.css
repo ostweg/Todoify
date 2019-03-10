@@ -1,0 +1,49 @@
+@media screen and (min-width: 500px) {
+  .container-nav {
+    display:flex;
+  }
+}
+.container-nav {
+  background-color:white;
+  border-bottom:1px solid #334A5A;
+}
+.box {
+  flex:3;
+  margin-left:40px;
+}
+.box1{
+  flex:1;
+  text-align: right;
+  padding-right:40px;
+  padding-top:70px;
+}
+.box1 button {
+  border:none;
+  background-color:white;
+  font-family:'Old Standard TT', serif;
+  outline:none;
+  color:#334A5A;
+  font-size:19px;
+}
+.box1 button:hover{
+  cursor: pointer;
+}
+span {
+  font-weight: bold;
+  font-size:45px;
+  font-family: 'Old Standard TT', serif;
+  color:#334A5A;
+}
+h3 {
+  font-weight:bold;
+  font-size:30px;
+  font-family: 'Old Standard TT', serif;
+  color:#0C1824;
+}
+.b2 {
+  padding:20px;
+}
+.title {
+  text-align:center;
+  margin-bottom:70px;
+}
