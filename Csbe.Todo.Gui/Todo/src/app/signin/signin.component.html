@@ -1,9 +1,13 @@
 
-<form >
+<form [formGroup]="MessageForm" (submit)="AuthenticateUser($event)">
   <div class="loginform">
-    <input type="text" name="Username" placeholder="Username.."><br>
-    <input type="password" name="pwd" placeholder="Password.."><br>
+    <input formControlName="Username" [(ngModel)]="User.Username" type="text" name="Username" placeholder="Username.."><br>
+    <input formControlName="Password" [(ngModel)]="User.PwHash" type="password" name="pwd" placeholder="Password.."><br>
     <button type="submit" name="login-submit">Login</button><br>
+      <div class="error2" *ngIf="PwOrUserIsWrong">
+        <p>Password or Username is wrong</p>
+      </div>
+
     <p>Not a member?
     <a routerLink="/signup" routerLinkActive="Active">Signup here!</a>
     </p>
