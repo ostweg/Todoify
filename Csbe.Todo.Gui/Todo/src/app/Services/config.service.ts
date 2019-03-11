@@ -14,6 +14,9 @@ export class ConfigService {
   GetUsers():Observable<UserService[]>{
     return this.HttpClient.get<UserService[]>(`${this.url}`);
   }
+  GetTodoItems():Observable<TodoService[]>{
+    return this.HttpClient.get<TodoService[]>(`${this.url1}`);
+  }
   PostUser(User:UserService):Observable<UserService>{
     console.log(User);
     const httpOptions = {

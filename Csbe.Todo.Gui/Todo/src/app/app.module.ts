@@ -19,6 +19,8 @@ import { CreateItemComponent } from './create-item/create-item.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 const routes:Routes = [
   {path: 'signup', component: SignupComponent},
@@ -53,7 +55,8 @@ const routes:Routes = [
     MatRadioModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatBadgeModule
   ],
   entryComponents: [CreateItemComponent],
   schemas: [NO_ERRORS_SCHEMA],
