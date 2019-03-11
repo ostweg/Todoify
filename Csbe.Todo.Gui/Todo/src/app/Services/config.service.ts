@@ -9,8 +9,11 @@ import {TodoService} from "../Interfaces/todo.service";
 })
 export class ConfigService {
   private url = 'https://localhost:5001/api/User';
+  private url1 = 'https://localhost:5001/api/TodoItem';
   constructor(private HttpClient:HttpClient) { }
-
+  GetUsers():Observable<UserService[]>{
+    return this.HttpClient.get<UserService[]>(`${this.url}`);
+  }
   PostUser(User:UserService):Observable<UserService>{
     console.log(User);
     const httpOptions = {
@@ -30,7 +33,7 @@ export class ConfigService {
         'Content-Type': 'application/json',
       })
     };
-    return this.HttpClient.post<TodoService>(`${this.url}`, object, httpOptions);
+    return this.HttpClient.post<TodoService>(`${this.url1}`, object, httpOptions);
   }
 
 }

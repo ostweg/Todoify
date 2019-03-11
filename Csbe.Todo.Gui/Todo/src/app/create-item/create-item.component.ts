@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {TodoService} from "../Interfaces/todo.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ConfigService} from "../Services/config.service";
+import {UserService} from "../Interfaces/user.service";
+import {MatDialogRef} from "@angular/material";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-create-item',
@@ -15,6 +18,8 @@ export class CreateItemComponent implements OnInit {
   submitted = false;
   success = false;
   selected: string;
+  UserId:number;
+  Users:UserService[];
 
   options = [
     {name: "low", value: 1},
@@ -22,7 +27,7 @@ export class CreateItemComponent implements OnInit {
     {name: "high", value: 3}
   ];
 
-  constructor(public configs: ConfigService, public FormBuilder: FormBuilder) {
+  constructor(public configs: ConfigService, public FormBuilder: FormBuilder,public dialog:MatDialogRef<CreateItemComponent>,public snack:MatSnackBar) {
     this.messageForm = this.FormBuilder.group({
       name: ['', Validators.required],
       desc: ['', [Validators.required, Validators.maxLength(20)]],
@@ -30,9 +35,10 @@ export class CreateItemComponent implements OnInit {
       enddate: ['', Validators.required],
       importance: ['', Validators.required]
     });
+
     this.toDo = {
       Name: undefined,
-      NameofPerson: undefined,
+      User_ID: undefined,
       ShortDescription: undefined,
       Importance: undefined,
       IsComplete: false,
@@ -41,6 +47,9 @@ export class CreateItemComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.configs.GetUsers().subscribe( data => {
+      this.Users= data;
+    });
   }
 
   createTodo(event: any): void {
@@ -52,12 +61,16 @@ export class CreateItemComponent implements OnInit {
       this.configs.PostTodoItem(this.toDo).subscribe((data: TodoService) => {
         this.toDo = {
           Name: undefined,
-          NameofPerson: undefined,
+          User_ID: undefined,
           ShortDescription: undefined,
           Importance: undefined,
-          IsComplete: undefined,
+          IsComplete: false,
           FinishDate: undefined
-        }
+        };
+      });
+      this.dialog.close();
+      this.snack.open("Created TodoItem","1",{
+          duration:2000,
       });
     }
 

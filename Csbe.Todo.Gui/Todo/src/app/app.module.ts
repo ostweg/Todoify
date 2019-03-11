@@ -17,6 +17,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { CreateItemComponent } from './create-item/create-item.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
 
 const routes:Routes = [
   {path: 'signup', component: SignupComponent},
@@ -49,7 +51,9 @@ const routes:Routes = [
     MatAutocompleteModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule,
+    MatSelectModule
   ],
   entryComponents: [CreateItemComponent],
   schemas: [NO_ERRORS_SCHEMA],

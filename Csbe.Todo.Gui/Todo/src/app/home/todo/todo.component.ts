@@ -12,6 +12,8 @@ export class TodoComponent implements OnInit {
 
   constructor(public Dialog:MatDialog) { }
   IsVisible:boolean = false;
+  selected = 'Your Assignments';
+
   ngOnInit() {
 
   }
@@ -25,7 +27,6 @@ export class TodoComponent implements OnInit {
   }
   toggle(){
     this.IsVisible =! this.IsVisible;
-    console.log(this.IsVisible);
   }
 
 

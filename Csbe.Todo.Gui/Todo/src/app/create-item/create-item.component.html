@@ -6,12 +6,6 @@
         <p>&#8226; Field is required</p>
       </div>
     </div>
-    <input formControlName="nameofp" [(ngModel)]="toDo.NameofPerson" type="text" name="nameofp" placeholder="Assign to person.."><br>
-    <div *ngIf="submitted && messageForm.controls.nameofp.errors" class="error">
-      <div *ngIf="submitted && messageForm.controls.nameofp.errors.required" class="error">
-        <p>&#8226; Field is required</p>
-      </div>
-    </div>
     <input formControlName="desc" [(ngModel)]="toDo.ShortDescription" type="text" name="desc" placeholder="Short description"><br>
     <div *ngIf="submitted && messageForm.controls.desc.errors" class="error">
       <div *ngIf="submitted && messageForm.controls.desc.errors.required" class="error">
@@ -34,6 +28,16 @@
     </select><br>
     <div *ngIf="submitted && messageForm.controls.importance.errors" class="error">
       <div *ngIf="submitted && messageForm.controls.importance.errors.required" class="error">
+        <p>&#8226; Field is required</p>
+      </div>
+    </div>
+    <select formControlName="nameofp" [(ngModel)]="toDo.User_ID" >
+      <option  *ngFor="let u of Users" value="{{u.id}}">
+        {{u.id +" "+u.name}}
+      </option>
+    </select><br>
+    <div *ngIf="submitted && messageForm.controls.nameofp.errors" class="error">
+      <div *ngIf="submitted && messageForm.controls.nameofp.errors.required" class="error">
         <p>&#8226; Field is required</p>
       </div>
     </div>

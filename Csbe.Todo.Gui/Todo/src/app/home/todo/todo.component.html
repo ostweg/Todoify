@@ -1,8 +1,17 @@
 <div class="container-nav">
-  <div class="b2">
+  <div class="b1">
     <button mat-fab color="white" (click)="openDialog()"><mat-icon>add</mat-icon></button><span>Create</span>
   </div>
-  <div class="b1">
-
+  <div class="b2">
+    <button mat-fab color="white" (click)="toggle()"><mat-icon>filter_list</mat-icon></button><span>Current filter: <b>{{selected}}</b></span>
+    <div class="filter-nav" *ngIf="IsVisible">
+      <mat-form-field>
+      <mat-select [(value)]="selected">
+        <mat-option value="Your Assignments">Your Assignments</mat-option>
+        <mat-option value="Not Assigned">Not Assigned</mat-option>
+        <mat-option value="Assigned">Assigned</mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
   </div>
 </div>
