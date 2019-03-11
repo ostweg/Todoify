@@ -38,9 +38,9 @@ namespace Csbe.Todo.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<TodoItem>> CreateTodoItem(TodoItem item)
         {
+            
             _todoContext.TodoItems.Add(item);
             await _todoContext.SaveChangesAsync();
-
             return CreatedAtAction(nameof(ReadTodoItemById), new {id = item.Id}, item);
         }
         //PUT: api/todoitem/{id}

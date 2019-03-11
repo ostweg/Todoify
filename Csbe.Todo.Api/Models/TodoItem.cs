@@ -14,6 +14,6 @@ namespace Csbe.Todo.Api.Models
 
         public bool IsComplete {get; set;}
 
-        public User User {get;set;}
+        public long User_ID {get;set;}
     }
 }

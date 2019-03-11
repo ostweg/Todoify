@@ -13,6 +13,6 @@ namespace Csbe.Todo.Api.Models
       
        
 
-        public IEnumerable<TodoItem> TodoItems {get;set;} //navigation property
+         //navigation property
     }
 }
