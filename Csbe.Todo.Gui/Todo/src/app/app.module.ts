@@ -20,12 +20,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
 import {MatBadgeModule} from '@angular/material/badge';
-
+import {AuthGuardService as AuthGuard}from "./Guard/auth-guard.service";
+import {IdentityService as Identity} from "./Guard/identity.service";
+import { TodoItemComponent } from './home/todo-item/todo-item.component';
 
 const routes:Routes = [
   {path: 'signup', component: SignupComponent},
   {path:'signin', component:SigninComponent},
-  {path:'home',component:HomeComponent},
+  {path:'home',component:HomeComponent,canActivate: [AuthGuard]},
   {path:'', component:SigninComponent},
   {path:'**', redirectTo:'signin', pathMatch:'full'}
 ];
@@ -38,6 +40,7 @@ const routes:Routes = [
     HomeComponent,
     TodoComponent,
     CreateItemComponent,
+    TodoItemComponent,
 
   ],
   imports: [

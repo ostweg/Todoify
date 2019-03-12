@@ -37,16 +37,17 @@ export class CreateItemComponent implements OnInit {
     });
 
     this.toDo = {
-      Name: undefined,
-      User_ID: undefined,
+      name: undefined,
+      user_ID: undefined,
       ShortDescription: undefined,
       Importance: undefined,
-      IsComplete: false,
-      FinishDate: undefined
+      isComplete: false,
+      finishDate: undefined
     }
   }
 
   ngOnInit() {
+    this.toDo.Importance = "select value";
     this.configs.GetUsers().subscribe( data => {
       this.Users= data;
     });
@@ -60,12 +61,12 @@ export class CreateItemComponent implements OnInit {
       this.success = true;
       this.configs.PostTodoItem(this.toDo).subscribe((data: TodoService) => {
         this.toDo = {
-          Name: undefined,
-          User_ID: undefined,
+          name: undefined,
+          user_ID: undefined,
           ShortDescription: undefined,
           Importance: undefined,
-          IsComplete: false,
-          FinishDate: undefined
+          isComplete: false,
+          finishDate: undefined
         };
       });
       this.dialog.close();

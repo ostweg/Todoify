@@ -1,9 +1,9 @@
 <div class="title">
   <h1>Todo-<br><Span >App</Span></h1>
 </div>
-<form [formGroup]="MessageForm" (submit)="AuthenticateUser($event)">
+<form [formGroup]="MessageForm" (submit)="AuthenticateUser($event,username.value)">
   <div class="loginform">
-    <input formControlName="Username" [(ngModel)]="User.Username" type="text" name="Username" placeholder="Username.."><br>
+    <input formControlName="Username" #username [(ngModel)]="User.Username" type="text" name="Username" placeholder="Username.."><br>
     <input formControlName="Password" [(ngModel)]="User.PwHash" type="password" name="pwd" placeholder="Password.."><br>
     <button type="submit" name="login-submit">Login</button><br>
       <div class="error2" *ngIf="PwOrUserIsWrong">

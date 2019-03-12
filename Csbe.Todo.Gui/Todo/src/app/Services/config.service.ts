@@ -10,7 +10,14 @@ import {TodoService} from "../Interfaces/todo.service";
 export class ConfigService {
   private url = 'https://localhost:5001/api/User';
   private url1 = 'https://localhost:5001/api/TodoItem';
-  constructor(private HttpClient:HttpClient) { }
+  public $todos:Observable<TodoService[]>;
+
+  constructor(private HttpClient:HttpClient) {
+    this.GlobalData();
+  }
+  GlobalData():void {
+    this.$todos = this.GetTodoItems();
+  }
   GetUsers():Observable<UserService[]>{
     return this.HttpClient.get<UserService[]>(`${this.url}`);
   }

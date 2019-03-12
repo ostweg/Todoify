@@ -1,6 +1,6 @@
 <div class="create-form">
   <form [formGroup]="messageForm" (ngSubmit)="createTodo($event)">
-    <input formControlName="name" [(ngModel)]="toDo.Name" type="text" name="name" placeholder="Name.."><br>
+    <input formControlName="name" [(ngModel)]="toDo.name" type="text" name="name" placeholder="Name.."><br>
     <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
       <div *ngIf="submitted && messageForm.controls.name.errors.required" class="error">
         <p>&#8226; Field is required</p>
@@ -15,7 +15,7 @@
         <p>&#8226; Max-length is 10</p>
       </div>
     </div>
-    <input formControlName="enddate" [(ngModel)]="toDo.FinishDate" type="date" name="enddate" placeholder="End date.."><br>
+    <input formControlName="enddate" [(ngModel)]="toDo.finishDate" type="date" name="enddate" placeholder="End date.."><br>
     <div *ngIf="submitted && messageForm.controls.enddate.errors" class="error">
       <div *ngIf="submitted && messageForm.controls.enddate.errors.required" class="error">
         <p>&#8226; Field is required</p>
@@ -31,7 +31,7 @@
         <p>&#8226; Field is required</p>
       </div>
     </div>
-    <select formControlName="nameofp" [(ngModel)]="toDo.User_ID" >
+    <select formControlName="nameofp" [(ngModel)]="toDo.user_ID" >
       <option  *ngFor="let u of Users" value="{{u.id}}">
         {{u.id +" "+u.name}}
       </option>

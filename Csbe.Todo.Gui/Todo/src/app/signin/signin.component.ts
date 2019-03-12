@@ -29,10 +29,11 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
 
   }
-  AuthenticateUser(event:any){
+  AuthenticateUser(event:any,Username:string){
     if(this.MessageForm.invalid){
       console.log('invalid');
     }else {
+      localStorage.setItem('currentUser',JSON.stringify({username:Username}));
       this.configs.AuthenticateUser(this.User).subscribe((data: UserService) => {
         this.User = {
           Username:undefined,

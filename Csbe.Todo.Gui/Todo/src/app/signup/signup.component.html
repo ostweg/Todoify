@@ -2,9 +2,9 @@
   <h1>Todo-<br><Span >App</Span></h1>
 </div>
 <div class="signupform">
-  <form [formGroup]="RegisterForm" (submit)="RegisterUser($event)">
+  <form [formGroup]="RegisterForm" (submit)="RegisterUser($event,username.value)">
 
-    <input formControlName="Username" [(ngModel)]="User.Username" type="text" name="Username" placeholder="Username.."><br>
+    <input formControlName="Username" [(ngModel)]="User.Username" #username type="text" name="Username" placeholder="Username.."><br>
     <div *ngIf=" submitted && RegisterForm.controls.Username.errors" class="error">
       <div *ngIf="submitted && RegisterForm.controls.Username.errors.required" class="error">
         <p>&#8226; Field is required</p>

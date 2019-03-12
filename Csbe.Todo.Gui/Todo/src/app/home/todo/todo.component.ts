@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {CreateItemComponent} from "../../create-item/create-item.component";
 import {ConfigService} from "../../Services/config.service";
@@ -33,9 +33,7 @@ export class TodoComponent implements OnInit {
       this.GetTodos();
     });
   }
-  toggle(){
-    this.IsVisible =! this.IsVisible;
-  }
+
 
 
 }

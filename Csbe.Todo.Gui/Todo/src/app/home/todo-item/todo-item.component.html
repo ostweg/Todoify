@@ -1,0 +1,28 @@
+<div class="todo">
+  <div class="b">
+
+    <label >{{toDo$.id}}</label>
+
+  </div>
+  <div class="b1">
+    <div class="title">
+      <input class="title" [(ngModel)]="toDo$.name">
+    </div>
+    <div class="b2">
+      <input class="finishDate" [(ngModel)]="toDo$.finishDate">
+    </div>
+    <div class="b3">
+      <select>
+        <option>
+
+        </option>
+      </select>
+    </div>
+    <div class="b4">
+      <input class="complete" [(ngModel)]="toDo$.isComplete">
+    </div>
+    <div class="b5">
+     <input class="foruser" [(ngModel)]="toDo$.user_ID">
+    </div>
+  </div>
+</div>

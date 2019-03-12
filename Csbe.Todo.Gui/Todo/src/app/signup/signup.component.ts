@@ -33,12 +33,15 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
 
   }
-  RegisterUser(event:any){
+  RegisterUser(event:any,Username:string){
+
+
   this.submitted = true;
   if(this.RegisterForm.invalid){
     console.log("invalid");
   }
   else {
+    localStorage.setItem('currentUser',JSON.stringify({username:Username}));
     this.config.PostUser(this.User).subscribe((user:UserService) => {
       this.User = {
         Name:undefined,
