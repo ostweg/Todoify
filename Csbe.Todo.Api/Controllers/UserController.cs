@@ -38,6 +38,16 @@ namespace Csbe.Todo.Api.Controllers
             return user;
             
         }
+        [HttpPost("GetUserId1")]
+        public long GetUserId(string user){
+            var userId =  _todoContext.Users.FirstOrDefault(x => x.Username == user).Id;
+            return userId;
+        }
+        [HttpPost("GetUserId")]
+        public long GetUserId(User user){
+            var userId =  _todoContext.Users.FirstOrDefault(x => x.Username == user.Username).Id;
+            return userId;
+        }
         //POST: api/todoitem
         [HttpPost]
         public async Task<ActionResult<User>> CreateUsers(User user)
