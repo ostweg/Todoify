@@ -48,6 +48,12 @@ export class ConfigService {
     };
     return this.HttpClient.post<TodoService>(`${this.url1}`, object, httpOptions);
   }
+  UpdateData(object:TodoService):Observable<TodoService>{
+    return this.HttpClient.put<TodoService>(`${this.url1}/${object.id}`,object)
+  }
+  DeleteData(object:TodoService):Observable<TodoService>{
+    return this.HttpClient.delete<TodoService>(`${this.url1}/${object.id}`);
+  }
 
 }
 

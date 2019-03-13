@@ -1,28 +1,27 @@
 <div class="todo">
-  <div class="b">
-
-    <label >{{toDo$.id}}</label>
-
-  </div>
-  <div class="b1">
-    <div class="title">
-      <input class="title" [(ngModel)]="toDo$.name">
+  <div class="header">
+      <div class="b1">
+          <input class="title" type="text" [(ngModel)]="toDo$.name" (blur)="change($event)">
     </div>
+   </div>
+   <div class="content">
     <div class="b2">
-      <input class="finishDate" [(ngModel)]="toDo$.finishDate">
+        Ends:<input class="finishDate" [(ngModel)]="toDo$.finishDate" (blur)="change($event)">
+        <mat-divider></mat-divider>
     </div>
     <div class="b3">
-      <select>
-        <option>
-
-        </option>
-      </select>
+     Importance:<input class="importance" [(ngModel)]="toDo$.importance" (blur)="change($event)">
+     <mat-divider></mat-divider>
     </div>
     <div class="b4">
-      <input class="complete" [(ngModel)]="toDo$.isComplete">
+        Done:<input class="complete" [(ngModel)]="toDo$.isComplete" (blur)="change($event)">
+        <mat-divider></mat-divider>
     </div>
     <div class="b5">
-     <input class="foruser" [(ngModel)]="toDo$.user_ID">
+        For User:<input class="foruser" [(ngModel)]="toDo$.user_ID" (blur)="change($event)">
     </div>
+  </div>
+  <div class="delete">
+    <mat-icon (click)="delete($event)">delete</mat-icon>
   </div>
 </div>

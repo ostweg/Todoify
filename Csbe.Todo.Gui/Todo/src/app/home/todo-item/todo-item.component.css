@@ -3,3 +3,31 @@
     display:flex;
   }
 }
+.todo {
+  padding-top:15px;
+  padding-left:15px;
+  padding-right:15px;
+  background-color:white;
+  margin-top:15px;
+  margin-left:5%;
+  margin-right:5%;
+  border-bottom:2px solid #ccc;
+}
+
+.b1 input[type=text]{
+  text-decoration: underline#334A5A ;
+  text-transform: uppercase;
+  font-weight:bold;
+  font-size:19px;
+  font-family: 'Old Standard TT', serif;
+  color:#0C1824;
+}
+input {
+  border:none;
+  outline: none;
+  flex:1;
+    box-sizing:border-box;
+  }
+.delete {
+  text-align:center;
+}

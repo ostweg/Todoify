@@ -43,7 +43,7 @@ h3 {
   font-size:30px;
   font-family: 'Old Standard TT', serif;
   color:#0C1824;
-}
+}  
 .b2 {
   padding:20px;
 }
@@ -51,13 +51,21 @@ h3 {
   text-align:center;
   margin-bottom:70px;
 }
-
+h1 {
+  font-weight:bold;
+  font-size:45px;
+  font-family: 'Old Standard TT', serif;
+  color:#0C1824;
+}
 button {
   background-color: white;
   outline: none;
 }
-span {
+span{
   margin-left:5px;
+}
+p {
+  margin-left:25px;
 }
 .container-nav {
   position: relative;

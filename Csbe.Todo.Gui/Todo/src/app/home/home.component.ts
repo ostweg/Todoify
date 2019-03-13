@@ -21,25 +21,24 @@ export class HomeComponent implements OnInit {
   username:string;
   constructor(public config: ConfigService,public Dialog:MatDialog) { }
 
-  GetUserId(){
+  GetTodoItemsbyUserId(){
     var user = JSON.parse(localStorage.getItem('currentUser'));
-    this.User = {
+    /*this.User = {
       Username:user.username
     };
     this.username= user.username;
     this.config.GetUserId(this.User).subscribe( Id => {
       this.UserId = Id;
-      console.log(Id);
+      this.config.GetTodoItems().subscribe( items => {
+        this.Todos = items.filter(y => y.user_ID == this.UserId);
+      })
+    }) <= filters after your assingments*/
+    this.config.GetTodoItems().subscribe( items => {
+      this.Todos = items.filter( y => y.createdBy == user.username);
     })
   }
-  GetTodos(){
-    this.config.GetTodoItems().subscribe( todos => {
-      this.Todos = todos;
-    });
-  }
   ngOnInit() {
-    this.GetTodos();
-    this.GetUserId();
+    this.GetTodoItemsbyUserId();
     console.log(this.selected);
   }
   
@@ -48,7 +47,7 @@ export class HomeComponent implements OnInit {
       width:'500px'
     });
     dialogRef.afterClosed().subscribe( result => {
-      this.GetTodos();
+      this.GetTodoItemsbyUserId();
     });
   }
   toggle(){

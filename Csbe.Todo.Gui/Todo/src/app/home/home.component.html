@@ -12,9 +12,10 @@
   </div>
   <div class="viewitems">
 <span class="spanclass1" matBadge="{{(this.Todos.length)}}" matBadgeOverlap="false" (click)="toggle1()">View Items</span>
+<p>To update a file click on the field to update</p>
 </div>
   <div class="toggleitems" *ngIf="IsVisible1">
-    <app-todo-item [toDo$]="todo" *ngFor="let todo of config.$todos | async"></app-todo-item>
+    <app-todo-item [toDo$]="todo" *ngFor="let todo of this.Todos"></app-todo-item>
   </div>
 </mat-tab>
 <mat-tab label="All TodoItems">

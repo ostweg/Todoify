@@ -24,6 +24,7 @@ import {AuthGuardService as AuthGuard}from "./Guard/auth-guard.service";
 import {IdentityService as Identity} from "./Guard/identity.service";
 import { TodoItemComponent } from './home/todo-item/todo-item.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDividerModule} from '@angular/material/divider';
 
 const routes:Routes = [
   {path: 'signup', component: SignupComponent},
@@ -61,7 +62,8 @@ const routes:Routes = [
     MatSnackBarModule,
     MatSelectModule,
     MatBadgeModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDividerModule  
   ],
   entryComponents: [CreateItemComponent],
   schemas: [NO_ERRORS_SCHEMA],
