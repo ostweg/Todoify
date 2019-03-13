@@ -4,6 +4,6 @@ export interface UserService {
   Name?:string;
   Email?:string;
   Username:string;
-  PwHash:string;
+  PwHash?:string;
 }
 

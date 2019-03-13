@@ -25,6 +25,15 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     this.GetTodos();
   }
+  toggle(){
+    this.IsVisible =! this.IsVisible;
+    
+  }
+  
+  getitem(){
+    console.log(this.selected);
+
+  }
   openDialog(){
     const dialogRef = this.Dialog.open(CreateItemComponent, {
       width:'500px'

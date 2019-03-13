@@ -6,32 +6,20 @@
     <button>Logout</button>
   </div>
 </div>
-<div class="tool">
-  <div class="b1">
-    <button mat-fab color="white" (click)="openDialog()"><mat-icon>add</mat-icon></button><span>Create</span>
+<mat-tab-group class="mattabgroup">
+  <mat-tab label="Your Todoitems">
+  <div class="todoitems" *ngFor="let todo of Todos">
   </div>
-  <div class="b2">
-    <button mat-fab color="white" (click)="toggle()"><mat-icon>filter_list</mat-icon></button><span>Current filter: <b>{{selected}}</b></span>
-    <div class="filter-nav" *ngIf="IsVisible">
-      <mat-form-field>
-        <mat-select [(ngModel)]="selected" id="test">
-          <mat-option value="Your Assignments" (click)="getitem()">Your Assignments</mat-option>
-          <mat-option value="Not Assigned" (click)="getitem()">Not Assigned</mat-option>
-          <mat-option value="Assigned" (click)="getitem()">Assigned</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="b3">
-    <p>
-
-    </p>
-  </div>
-</div>
-<div class="todoitems" *ngFor="let todo of Todos">
-</div>
+  <div class="viewitems">
 <span class="spanclass1" matBadge="{{(this.Todos.length)}}" matBadgeOverlap="false" (click)="toggle1()">View Items</span>
-<div class="toggleitems" *ngIf="IsVisible1">
-  <app-todo-item [toDo$]="todo" *ngFor="let todo of config.$todos | async"></app-todo-item>
 </div>
+  <div class="toggleitems" *ngIf="IsVisible1">
+    <app-todo-item [toDo$]="todo" *ngFor="let todo of config.$todos | async"></app-todo-item>
+  </div>
+</mat-tab>
+<mat-tab label="All TodoItems">
+<app-todo></app-todo>
+</mat-tab>
+</mat-tab-group>
+
 

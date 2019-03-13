@@ -18,6 +18,9 @@ export class ConfigService {
   GlobalData():void {
     this.$todos = this.GetTodoItems();
   }
+  GetUserId(User:UserService):Observable<number>{
+    return this.HttpClient.post<number>(`${this.url}/GetUserId`,User);
+  }
   GetUsers():Observable<UserService[]>{
     return this.HttpClient.get<UserService[]>(`${this.url}`);
   }

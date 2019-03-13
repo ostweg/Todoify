@@ -3,6 +3,7 @@ import {ConfigService} from "../Services/config.service";
 import {TodoService} from "../Interfaces/todo.service";
 import {CreateItemComponent} from "../create-item/create-item.component";
 import {MatDialog} from "@angular/material";
+import { UserService } from '../Interfaces/user.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,22 @@ export class HomeComponent implements OnInit {
   selected = 'Your Assignments';
   int:number = 12;
   Todos:TodoService[];
+  UserId:number;
+  User:UserService;
+  username:string;
   constructor(public config: ConfigService,public Dialog:MatDialog) { }
+
+  GetUserId(){
+    var user = JSON.parse(localStorage.getItem('currentUser'));
+    this.User = {
+      Username:user.username
+    };
+    this.username= user.username;
+    this.config.GetUserId(this.User).subscribe( Id => {
+      this.UserId = Id;
+      console.log(Id);
+    })
+  }
   GetTodos(){
     this.config.GetTodoItems().subscribe( todos => {
       this.Todos = todos;
@@ -23,11 +39,10 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit() {
     this.GetTodos();
+    this.GetUserId();
     console.log(this.selected);
   }
-  getitem(){
-    console.log(this.selected);
-  }
+  
   openDialog(){
     const dialogRef = this.Dialog.open(CreateItemComponent, {
       width:'500px'
