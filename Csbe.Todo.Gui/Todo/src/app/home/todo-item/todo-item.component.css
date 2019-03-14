@@ -25,9 +25,11 @@
 input {
   border:none;
   outline: none;
-  flex:1;
-    box-sizing:border-box;
+ display: block;
   }
 .delete {
   text-align:center;
+}
+.content {
+  flex: 3;
 }

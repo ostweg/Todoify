@@ -35,10 +35,11 @@ export class CreateItemComponent implements OnInit {
     this.messageForm = this.FormBuilder.group({
       name: ['', Validators.required],
       desc: ['', [Validators.required, Validators.maxLength(20)]],
-      nameofp: ['', Validators.required],
       enddate: ['', Validators.required],
+      nameofp:[''],
       importance: ['', Validators.required]
     });
+    console.log('user is: '+ user.username);
     this.toDo = {
       name: undefined,
       user_ID: undefined,

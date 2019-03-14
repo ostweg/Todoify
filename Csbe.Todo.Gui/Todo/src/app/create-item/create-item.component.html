@@ -36,11 +36,6 @@
         {{u.id +" "+u.name}}
       </option>
     </select><br>
-    <div *ngIf="submitted && messageForm.controls.nameofp.errors" class="error">
-      <div *ngIf="submitted && messageForm.controls.nameofp.errors.required" class="error">
-        <p>&#8226; Field is required</p>
-      </div>
-    </div>
     <button type="submit">Submit</button>
   </form>
 </div>

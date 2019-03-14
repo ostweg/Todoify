@@ -3,6 +3,7 @@ import {TodoService} from "../../Interfaces/todo.service";
 import { ConfigService } from '../../Services/config.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { TNodeProviderIndexes } from '@angular/core/src/render3/interfaces/node';
+import { UserService } from 'src/app/Interfaces/user.service';
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
@@ -11,9 +12,14 @@ import { TNodeProviderIndexes } from '@angular/core/src/render3/interfaces/node'
 export class TodoItemComponent implements OnInit {
   @Input() toDo$:TodoService;
   counter:number;
+  Users:UserService[];
+
   constructor(public cs:ConfigService,public snack:MatSnackBar) { }
 
   ngOnInit() {
+    this.cs.GetUsers().subscribe( data => {
+      this.Users = data;
+    })
   }
   change(event:any){
     this.cs.UpdateData(this.toDo$).subscribe((data:TodoService) => {

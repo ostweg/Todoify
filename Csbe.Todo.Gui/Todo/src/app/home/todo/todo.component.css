@@ -19,6 +19,46 @@ span {
 .b3 {
   margin-top:25px;
 }
+.micon {
+  color:green;
+}
 
+@media  screen and (min-width: 500px) {
+  .todo {
+    display:flex;
+  }
+}
+.todo {
+  padding-top:15px;
+  padding-left:15px;
+  padding-right:15px;
+  background-color:white;
+  margin-top:15px;
+  margin-left:5%;
+  margin-right:5%;
+  border-bottom:2px solid #ccc;
+}
 
+.b11 {
+  text-decoration: underline#334A5A ;
+  text-transform: uppercase;
+  font-weight:bold;
+  font-size:19px;
+  font-family: 'Old Standard TT', serif;
+  color:#0C1824;
+}
+input {
+  border:none;
+  outline: none;
+ display: block;
+  }
+.delete {
+  text-align:center;
+}
+.content {
+  flex: 3;
+}
 
+.header {
+  width:80px;
+}

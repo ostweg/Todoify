@@ -16,4 +16,32 @@
   </div>
 </div>
 <div class="todoitems" *ngFor="let todo of Todos">
+  <div class="todo">
+    <div class="header">
+      <div class="b11">
+        <p>{{todo.name}}</p>
+      </div>
+    </div>
+    <div class="content">
+      <div class="b2">
+        Ends:<p>{{todo.finishDate}}</p>
+        <mat-divider></mat-divider>
+      </div>
+      <div class="b3">
+        Importance:<p>{{todo.importance}}</p>
+        <mat-divider></mat-divider>
+      </div>
+      <div class="b4">
+      Done:<p>{{todo.isComplete}}</p>
+      <mat-divider></mat-divider>
+      </div>
+      <div class="b5">
+      For User:<p>{{todo.user_ID}}</p>
+      <mat-divider></mat-divider>
+      </div>
+    </div>
+    <div class="Done">
+      <mat-icon class="micon" (click)="TodoItemDone(event)">check</mat-icon>
+    </div>
+  </div>
 </div>
