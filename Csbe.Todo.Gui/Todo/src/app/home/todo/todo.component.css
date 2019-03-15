@@ -62,3 +62,12 @@ input {
 .header {
   width:80px;
 }
+.Uneditable {
+  border:none;
+  background-color:transparent;
+  text-decoration: line-through;
+  opacity: 0;
+}
+.Editable {
+  border:none;
+}

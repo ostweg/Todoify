@@ -19,29 +19,32 @@
   <div class="todo">
     <div class="header">
       <div class="b11">
-        <p>{{todo.name}}</p>
+        <p name="name" ngDefaultControl [(ngModel)]="TodoItem.name">{{todo.name}}</p>
       </div>
     </div>
     <div class="content">
       <div class="b2">
-        Ends:<p>{{todo.finishDate}}</p>
+        Ends:<p name="Ends" ngDefaultControl [(ngModel)]="TodoItem.finishDate">{{todo.finishDate}}</p>
         <mat-divider></mat-divider>
       </div>
       <div class="b3">
-        Importance:<p>{{todo.importance}}</p>
+        Importance:<p name="importance" ngDefaultControl [(ngModel)]="TodoItem.Importance">{{todo.importance}}</p>
         <mat-divider></mat-divider>
       </div>
       <div class="b4">
-      Done:<p>{{todo.isComplete}}</p>
+      Done:<p name="done" ngDefaultControl [(ngModel)]="TodoItem.isComplete">{{todo.isComplete}}</p>
       <mat-divider></mat-divider>
       </div>
       <div class="b5">
-      For User:<p>{{todo.user_ID}}</p>
+      For User:<p name="userid" ngDefaultControl [(ngModel)]="TodoItem.user_ID" >{{todo.user_ID}}</p>
       <mat-divider></mat-divider>
+      </div>
+      <div class="b6">
+        Created by:<p name="createdBy" ngDefaultControl [(ngModel)]="TodoItem.createdBy">{{todo.createdBy}}</p>
       </div>
     </div>
     <div class="Done">
-      <mat-icon class="micon" (click)="TodoItemDone(event)">check</mat-icon>
+      <button [class]="IsDisabled? 'Uneditable': 'Editable'" [disabled]="IsDisabled" ><mat-icon (click)="TodoItemDone(todo, todo.id)" class="micon" >check</mat-icon></button>
     </div>
   </div>
 </div>
